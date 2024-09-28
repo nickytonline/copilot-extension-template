@@ -4,7 +4,7 @@
     "dev": "tsx watch src/index.ts"
   },
   "dependencies": {
-    "@copilot-extensions/preview-sdk": "^4.0.3",
+    "@copilot-extensions/preview-sdk": "^5.0.0",
     "@hono/node-server": "^1.12.2",
     "@octokit/core": "^6.1.2",
     "hono": "^4.6.1"
