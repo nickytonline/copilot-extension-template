@@ -10,7 +10,7 @@
     "hono": "^4.6.1"
   },
   "devDependencies": {
-    "@types/node": "^20.11.17",
+    "@types/node": "^22.7.4",
     "tsx": "^4.7.1"
   },
   "version": "1.0.0",
