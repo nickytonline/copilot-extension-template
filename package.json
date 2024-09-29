@@ -1,0 +1,21 @@
+{
+  "name": "copilot-extension-template",
+  "scripts": {
+    "dev": "tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "@copilot-extensions/preview-sdk": "^4.0.3",
+    "@hono/node-server": "^1.12.2",
+    "@octokit/core": "^6.1.2",
+    "hono": "^4.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.1"
+  },
+  "version": "1.0.0",
+  "description": "``` npm install npm run dev ```",
+  "main": "index.js",
+  "author": "Nick Taylor <nick@nickyt.co>",
+  "license": "MIT"
+}
