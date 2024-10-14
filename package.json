@@ -7,7 +7,7 @@
     "@copilot-extensions/preview-sdk": "^5.0.1",
     "@hono/node-server": "^1.12.2",
     "@octokit/core": "^6.1.2",
-    "hono": "^4.6.1"
+    "hono": "^4.6.4"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
