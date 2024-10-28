@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.7.7",
-    "tsx": "^4.7.1"
+    "tsx": "^4.19.2"
   },
   "version": "1.0.0",
   "description": "``` npm install npm run dev ```",
