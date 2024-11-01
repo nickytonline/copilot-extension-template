@@ -1,5 +1,6 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
+import { stream } from "hono/streaming";
 import { Octokit } from "@octokit/core";
 import {
   createAckEvent,
@@ -37,8 +38,7 @@ app.post("/", async (c) => {
     console.error("Request verification failed");
     c.header("Content-Type", "text/plain");
     c.status(401);
-    c.text("Request could not be verified");
-    return;
+    return c.text("Request could not be verified");
   }
 
   if (!tokenForUser) {
@@ -54,17 +54,44 @@ app.post("/", async (c) => {
     );
   }
 
-  const octokit = new Octokit({ auth: tokenForUser });
-  const user = await octokit.request("GET /user");
-  const prompt = getUserMessage(payload);
+  c.header("Content-Type", "text/html");
+  c.header("X-Content-Type-Options", "nosniff");
 
-  return c.text(
-    createAckEvent() +
-      createTextEvent(
-        `Welcome ${user.data.login}! It looks like you asked the following question, "${prompt}". This is a GitHub Copilot extension template, so it's up to you to decide what you want to implement to answer prompts.`
-      ) +
-      createDoneEvent()
-  );
+  return stream(c, async (stream) => {
+    try {
+      // Let GitHub Copilot know we are doing something
+      await stream.write(createAckEvent());
+
+      const octokit = new Octokit({ auth: tokenForUser });
+      const user = await octokit.request("GET /user");
+      const prompt = getUserMessage(payload);
+
+      await stream.write(
+        createTextEvent(
+          `Welcome ${user.data.login}! It looks like you asked the following question, "${prompt}". `
+        )
+      );
+
+      await stream.write(
+        createTextEvent(
+          "This is a GitHub Copilot extension template, so it's up to you to decide what you want to implement to answer prompts."
+        )
+      );
+
+      await stream.write(createDoneEvent());
+    } catch (error) {
+      await stream.write(
+        createErrorsEvent([
+          {
+            type: "agent",
+            message: error instanceof Error ? error.message : "Unknown error",
+            code: "PROCESSING_ERROR",
+            identifier: "processing_error",
+          },
+        ])
+      );
+    }
+  });
 });
 
 const port = 3000;
