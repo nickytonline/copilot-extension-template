@@ -12,15 +12,15 @@ Head to your settings page on GitHub, and at the bottom, to the left, click on t
 <!-- ***** If these (Homepage URL and Callback URL) are indicated in the first part of the article, how best to reference it here? ***** --> 
 Even if you're not using OAuth you still need to put a URL here. In the future this may no longer be required.
 
-![General settings](./docs/images/general_settings.png)
+![General settings](./images/general_settings.png)
 
 4. Disable webhooks if they're enabled.
 
-![Webhooks checkbox](./docs/images/webhooks.png)
+![Webhooks checkbox](./images/webhooks.png)
 
 5. Make sure the app is initially accessible only to you. Later, when you're ready to make your GitHub Copilot extension publicly available, you can enable it for everyone.
 
-![Permissions](./docs/images/permissions.png)
+![Permissions](./images/permissions.png)
 
 6. Click the **Create GitHub App** button to create the GitHub app.
 
@@ -28,15 +28,15 @@ Even if you're not using OAuth you still need to put a URL here. In the future t
 
 Next, you need to configure permissions. You only need to provide the bare minimum permissions for a Copilot extension to work.
 
-![Permissions and events](./docs/images/permissions_and_events.png)
+![Permissions and events](./images/permissions_and_events.png)
 
 1. Expand the **Account permissions** section and set the Copilot Chat permission to *Read-only*. The default is *No access*.
 
-![expanded account permissions](./docs/images/account_permissions.png)
+![expanded account permissions](./images/account_permissions.png)
 
 2. Click **Save changes**. Don't be alarmed by the *Are you sure you want to update permissions?* message.
 
-![warning message](./docs/images/warning.png)
+![warning message](./images/warning.png)
 
 ### Copilot Settings
 
@@ -44,7 +44,7 @@ Next, you need to configure permissions. You only need to provide the bare minim
 2. Set the URL to the root of the public URL you exposed via tunneling/port forwarding.
 <!-- ***** this refers to steps in the first part of the article, which have been omitted ***** -->
 
-![GitHub App's Copilot settings section](./docs/images/github_apps.png)
+![GitHub App's Copilot settings section](./images/github_apps.png)
 
 3. Click **Save**.
 
@@ -56,23 +56,23 @@ Before you can use the extension, it has to be installed.
 
 1. Navigate to your **[GitHub apps]kv(https://github.com/settings/apps)** in your developer settings.
 
-![GitHub apps section of GitHub developer settings](./docs/images/github_apps_2.png)
+![GitHub apps section of GitHub developer settings](./images/github_apps_2.png)
 
 2. Click the **Edit** button to edit the app.
 
 3. Go to the **Install App** section of the GitHub Apps' settings.
 
-![GitHub App's Install App settings panel](./docs/images/install_copilot.png)
+![GitHub App's Install App settings panel](./images/install_copilot.png)
 
 4. Click the **Install** button to install the application.
 
 You're brought to an intermediary page to confirm the installation of the GitHub app. Click the **Install** button.
 
-![GitHub app installation confirmation step](./docs/images/confirm.png)
+![GitHub app installation confirmation step](./images/confirm.png)
 
 Your Copilot extension is installed for your GitHub account.
 
-![Post GitHub app installation screen showing the app installed](./docs/images/confirmed.png)
+![Post GitHub app installation screen showing the app installed](./images/confirmed.png)
 
 ## Test Your Copilot Extension
 
@@ -88,15 +88,15 @@ For these environments, follow these steps:
 
 2. Your extension should appear as, e.g. "@my-copilot-extension".
 
-![Copilot chat on GitHub.com displaying the available Copilot extensions](./docs/images/test.png)
+![Copilot chat on GitHub.com displaying the available Copilot extensions](./images/test.png)
 
-![Copilot chat in Visual Studio Code displaying the available Copilot extensions](./docs/images/extensions.png)
+![Copilot chat in Visual Studio Code displaying the available Copilot extensions](./images/extensions.png)
 
 3. Select your extension and ask a question or perform an operation.
 
 4. The Copilot extension will return a response of "Welcome *your_github_username*! It looks like you asked the following question: *your_question*. This is a GitHub Copilot extension template, so it's up to you to decide what you want to implement to answer prompts."
 
 
-![Copilot chat responding](./docs/images/vs_code.png)
+![Copilot chat responding](./images/vs_code.png)
 
 It won't respond to your specific question, as that functionality has not been implemented. This is where you can explore the preview SDK or integrate with a third-party service to provide more meaningful responses.
