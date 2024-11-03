@@ -1,5 +1,31 @@
 # Configure your GitHub Copilot Extension
 
+Follow the steps below to configure the Copilot Extension template for your own personal use.
+
+## Expose Your Extension
+
+To test your Copilot extension, you need to make it publicly accessible:
+
+1. If using Visual Studio Code (VS Code), enable [port forwarding](https://code.visualstudio.com/docs/editor/port-forwarding). Note that the port is private by default - a good thing - but for this use case you need to set it to public.
+
+![Port forwarding tab in the bottom dock of VS Code](./images/port_forwarding.png)
+
+Alternatively, use tools like [cloudflared](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-local-tunnel/) or [ngrok](https://ngrok.com/) to expose a public URL.
+
+In the provided code, the server is set up to run on port 3000:
+
+```
+const port = 3000;
+console.log(`Server is running on port ${port}`);
+
+serve({
+  fetch: app.fetch,
+  port,
+});
+```
+
+It's worth mentioning that this setup is great for testing, but once you're ready to make your extension public you'll need to deploy the web app (which acts as the GitHub app) to a publicly accessible location.
+
 ## Create a GitHub app
 
 Head to your settings page on GitHub, and at the bottom, to the left, click on the **Developer Settings** link. This will bring you to your **GitHub apps**. (You can also directly navigate to your **GitHub apps** page at https://github.com/settings/apps. Configure the following:
@@ -8,9 +34,7 @@ Head to your settings page on GitHub, and at the bottom, to the left, click on t
 
 1. Enter a **GitHub App name**, e.g. my-copilot-extension
 2. Enter a URL for the homepage. This can be the same as the test URL for now.
-3. Set the **Callback URL** (currently required). This can be the same as the test URL for now. 
-<!-- ***** If these (Homepage URL and Callback URL) are indicated in the first part of the article, how best to reference it here? ***** --> 
-Even if you're not using OAuth you still need to put a URL here. In the future this may no longer be required.
+3. Set the **Callback URL** (currently required). This can also be the same as the test URL for now. Even if you're not using OAuth, you still need to put a URL here. In the future this may no longer be required.
 
 ![General settings](./images/general_settings.png)
 
@@ -42,7 +66,6 @@ Next, you need to configure permissions. You only need to provide the bare minim
 
 1. Set the **App Type** to *Agent*. It's set to *Disabled* by default.
 2. Set the URL to the root of the public URL you exposed via tunneling/port forwarding.
-<!-- ***** this refers to steps in the first part of the article, which have been omitted ***** -->
 
 ![GitHub App's Copilot settings section](./images/github_apps.png)
 
