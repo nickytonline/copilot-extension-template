@@ -2,15 +2,15 @@
 
 ## Create a GitHub app
 
-Head to your settings page on GitHub, and at the bottom, to the left, click on the Developer Settings link. This will bring you to your GitHub apps. (You can also directly navigate to your GitHub apps page at https://github.com/settings/apps.) Configure the following:
+Head to your settings page on GitHub, and at the bottom, to the left, click on the **Developer Settings** link. This will bring you to your **GitHub apps**. (You can also directly navigate to your **GitHub apps** page at https://github.com/settings/apps.) Configure the following:
 
 ### General Settings
 
 1. Enter a **GitHub App name**, e.g. my-copilot-extension
 2. Enter a URL for the homepage. This can be the same as the test URL for now.
 3. Set the **Callback URL** (currently required). This can be the same as the test URL for now. 
-<!-- ***** If this is indicated in the first part of the article, how best to reference it here? ***** --> 
-Even if you're not using OAuth you still need to put a URL here. I'm told in future this may no longer be required.
+<!-- ***** If these (Homepage URL and Callback URL) are indicated in the first part of the article, how best to reference it here? ***** --> 
+Even if you're not using OAuth you still need to put a URL here. In the future this may no longer be required.
 
 <!-- screenshot of General Settings -->
 
