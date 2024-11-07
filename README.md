@@ -14,4 +14,4 @@ open http://localhost:3000
 
 ## Development Environment
 
-To get up and running with your development environment, see the [Development Guide](./docs/CONFIGURATION.md).
+To get up and running with your development environment, see the [Development Guide](./docs/DEVELOPMENT_SETUP.md).
