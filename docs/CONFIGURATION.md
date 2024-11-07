@@ -12,17 +12,7 @@ To test your Copilot extension, you need to make it publicly accessible:
 
 Alternatively, use tools like [cloudflared](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-local-tunnel/) or [ngrok](https://ngrok.com/) to expose a public URL.
 
-In the provided code, the server is set up to run on port 3000:
-
-```
-const port = 3000;
-console.log(`Server is running on port ${port}`);
-
-serve({
-  fetch: app.fetch,
-  port,
-});
-```
+The application is set up to run on port 3000, so we'll forward port 3000.
 
 It's worth mentioning that this setup is great for testing, but once you're ready to make your extension public you'll need to deploy the web app (which acts as the GitHub app) to a publicly accessible location.
 
