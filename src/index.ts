@@ -61,7 +61,7 @@ app.post("/", async (c) => {
   return stream(c, async (stream) => {
     try {
       // Let GitHub Copilot know we are doing something
-      await stream.write(createAckEvent());
+      stream.write(createAckEvent());
 
       const octokit = new Octokit({ auth: tokenForUser });
       const user = await octokit.request("GET /user");
@@ -71,12 +71,12 @@ app.post("/", async (c) => {
         token: tokenForUser,
       });
 
-      await stream.write(createTextEvent(`Hi ${user.data.login}! `));
+      stream.write(createTextEvent(`Hi ${user.data.login}! `));
 
-      await stream.write(createTextEvent(message.content));
-      await stream.write(createDoneEvent());
+      stream.write(createTextEvent(message.content));
+      stream.write(createDoneEvent());
     } catch (error) {
-      await stream.write(
+      stream.write(
         createErrorsEvent([
           {
             type: "agent",
