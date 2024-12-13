@@ -8,6 +8,7 @@ import {
   createErrorsEvent,
   createTextEvent,
   getUserMessage,
+  prompt,
   verifyAndParseRequest,
 } from "@copilot-extensions/preview-sdk";
 
@@ -64,20 +65,15 @@ app.post("/", async (c) => {
 
       const octokit = new Octokit({ auth: tokenForUser });
       const user = await octokit.request("GET /user");
-      const prompt = getUserMessage(payload);
+      const userPrompt = getUserMessage(payload);
 
-      await stream.write(
-        createTextEvent(
-          `Welcome ${user.data.login}! It looks like you asked the following question, "${prompt}". `
-        )
-      );
+      const { message } = await prompt(userPrompt, {
+        token: tokenForUser,
+      });
 
-      await stream.write(
-        createTextEvent(
-          "This is a GitHub Copilot extension template, so it's up to you to decide what you want to implement to answer prompts."
-        )
-      );
+      await stream.write(createTextEvent(`Hi ${user.data.login}! `));
 
+      await stream.write(createTextEvent(message.content));
       await stream.write(createDoneEvent());
     } catch (error) {
       await stream.write(
