@@ -1,6 +1,6 @@
 # A Template for Your First Copilot Extension
 
-This is a template for creating your first Copilot extension. It's a simple Node.js app that uses Hono.
+This is a template for creating your first Copilot extension. It's a simple Node.js app that uses [Hono](https://hono.dev/) and leverages the [GitHub Copilot Extension Preview SDK for JavaScript](https://github.com/copilot-extensions/preview-sdk.js/).
 
 ## Installation
 
