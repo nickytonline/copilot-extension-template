@@ -17,6 +17,7 @@
     "node": ">=22.13.1"
   },
   "version": "1.0.0",
+  "type": "module",
   "description": "``` npm install npm run dev ```",
   "main": "index.js",
   "author": "Nick Taylor <nick@nickyt.co>",
