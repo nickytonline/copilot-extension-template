@@ -1,7 +1,7 @@
 {
   "name": "copilot-extension-template",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "node --watch --experimental-strip-types src/index.ts",
     "start": "node --experimental-strip-types src/index.ts"
   },
   "dependencies": {
@@ -11,8 +11,7 @@
     "hono": "^4.7.1"
   },
   "devDependencies": {
-    "@types/node": "^22.13.5",
-    "tsx": "^4.19.2"
+    "@types/node": "^22.13.5"
   },
   "engines": {
     "node": ">=22.13.1"
