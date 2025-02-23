@@ -1,7 +1,8 @@
 {
   "name": "copilot-extension-template",
   "scripts": {
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/index.ts",
+    "start": "node --experimental-strip-types src/index.ts"
   },
   "dependencies": {
     "@copilot-extensions/preview-sdk": "^5.0.1",
