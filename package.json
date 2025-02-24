@@ -18,7 +18,7 @@
   },
   "version": "1.0.0",
   "type": "module",
-  "description": "``` npm install npm run dev ```",
+  "description": "A starter template for building GitHub Copilot extensions using the Preview SDK and Hono framework",
   "main": "index.js",
   "author": "Nick Taylor <nick@nickyt.co>",
   "license": "MIT"
