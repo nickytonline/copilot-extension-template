@@ -23,8 +23,8 @@ app.post("/", async (c) => {
   const tokenForUser = c.req.header("X-GitHub-Token") ?? "";
 
   const body = await c.req.text();
-  const signature = c.req.header("github-public-key-signature") ?? "";
-  const keyID = c.req.header("github-public-key-identifier") ?? "";
+  const signature = c.req.header("x-github-public-key-signature") ?? "";
+  const keyID = c.req.header("x-github-public-key-identifier") ?? "";
 
   const { isValidRequest, payload } = await verifyAndParseRequest(
     body,
